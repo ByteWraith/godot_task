@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://di678ft25tim8"]
+
+[ext_resource type="Script" uid="uid://srcnitk4gmb0" path="res://scripts/memory_class.gd" id="1_sw04i"]
+
+[node name="memory" type="Node"]
+script = ExtResource("1_sw04i")

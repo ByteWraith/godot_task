@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0haanscthm48"]
+
+[ext_resource type="Script" uid="uid://x6w21vh0ow3m" path="res://scripts/info_label.gd" id="1_oi4vb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1o1i"]
+font_size = 35
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="info_label" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+script = ExtResource("1_oi4vb")
+
+[node name="text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = 64.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ключ +1"
+label_settings = SubResource("LabelSettings_a1o1i")
+horizontal_alignment = 1
+vertical_alignment = 1

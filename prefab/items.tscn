@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc3gqcvtncst1"]
+
+[ext_resource type="Script" uid="uid://wxsr2mm4084j" path="res://scripts/items.gd" id="1_54nhx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hqqlr"]
+load_path = "res://.godot/imported/items.png-3ad4a5b9836bbf1a34dc60af41f40a8b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54nhx"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_hqqlr")
+region = Rect2(2, 4, 12, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vd5p8"]
+radius = 5.0
+
+[node name="items" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_54nhx")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_54nhx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vd5p8")

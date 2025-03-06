@@ -1,0 +1,527 @@
+[gd_scene load_steps=19 format=3 uid="uid://daga47joqsy5s"]
+
+[ext_resource type="Script" uid="uid://b124sv78jljdn" path="res://scripts/hud.gd" id="1_8i4tq"]
+[ext_resource type="Texture2D" uid="uid://cowlxrs31k2oq" path="res://sprites/interface/interface.png" id="1_a1ena"]
+[ext_resource type="Texture2D" uid="uid://7o4bsrp4xny0" path="res://sprites/items/items.png" id="2_8i4tq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i4tq"]
+atlas = ExtResource("1_a1ena")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8i4tq"]
+load_path = "res://.godot/imported/items.png-3ad4a5b9836bbf1a34dc60af41f40a8b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogcpo"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_8i4tq")
+region = Rect2(18, 0, 12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6f2p"]
+atlas = ExtResource("1_a1ena")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogcpo"]
+bg_color = Color(0.0923971, 0.0923971, 0.092397, 1)
+border_width_left = 5
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g43o8"]
+resource_local_to_scene = true
+atlas = ExtResource("2_8i4tq")
+region = Rect2(1, 16, 13, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4p23"]
+atlas = ExtResource("1_a1ena")
+region = Rect2(0, 3, 16, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdahu"]
+atlas = ExtResource("1_a1ena")
+region = Rect2(0, 6, 16, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogcpo"]
+font_size = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mf88"]
+atlas = ExtResource("2_8i4tq")
+region = Rect2(2, 4, 12, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i4tq"]
+bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdahu"]
+bg_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mf88"]
+font_size = 25
+
+[sub_resource type="FontFile" id="FontFile_8i4tq"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4p23"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+border_width_left = 5
+border_width_right = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1_8i4tq")
+metadata/_edit_horizontal_guides_ = [480.0, 176.0]
+metadata/_edit_vertical_guides_ = [424.0, 728.0, 64.0, 384.0]
+
+[node name="prefabs" type="Node" parent="."]
+
+[node name="cell" type="Control" parent="prefabs"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -352.0
+offset_top = 80.0
+offset_right = -288.0
+offset_bottom = 144.0
+mouse_filter = 2
+
+[node name="back" type="TextureRect" parent="prefabs/cell"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_8i4tq")
+expand_mode = 1
+
+[node name="icon" type="TextureRect" parent="prefabs/cell/back"]
+layout_mode = 0
+anchor_left = 0.125
+anchor_top = 0.125
+anchor_right = 0.875
+anchor_bottom = 0.875
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ogcpo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="select" type="TextureRect" parent="prefabs/cell"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_x6f2p")
+expand_mode = 1
+
+[node name="memory_name" type="Label" parent="prefabs/cell"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="item" type="Control" parent="prefabs"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -560.0
+offset_top = 24.0
+offset_right = -528.0
+offset_bottom = 56.0
+
+[node name="main" type="Control" parent="prefabs/item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 264.0
+offset_right = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Panel" parent="prefabs/item/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ogcpo")
+
+[node name="box" type="HBoxContainer" parent="prefabs/item/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="icon" type="TextureRect" parent="prefabs/item/main/box"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_g43o8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="text" type="Label" parent="prefabs/item/main/box"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Яблоко"
+
+[node name="interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="hud" type="Control" parent="interface"]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="back" type="Panel" parent="interface/hud"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 112.0
+
+[node name="hp" type="TextureProgressBar" parent="interface/hud"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 200.0
+offset_bottom = 56.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_h4p23")
+texture_progress = SubResource("AtlasTexture_kdahu")
+
+[node name="text" type="Label" parent="interface/hud/hp"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.0
+offset_right = 120.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "10/10"
+label_settings = SubResource("LabelSettings_ogcpo")
+vertical_alignment = 1
+
+[node name="key" type="TextureRect" parent="interface/hud"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 72.0
+offset_bottom = 104.0
+texture = SubResource("AtlasTexture_8mf88")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="text" type="Label" parent="interface/hud/key"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -24.0
+offset_right = 240.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ogcpo")
+vertical_alignment = 1
+
+[node name="add_open_door" type="Control" parent="interface"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel" type="Panel" parent="interface/add_open_door"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -148.0
+offset_right = 153.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8i4tq")
+
+[node name="buttons" type="HBoxContainer" parent="interface/add_open_door/panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -93.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="open" type="Button" parent="interface/add_open_door/panel/buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Открыть"
+
+[node name="cancel" type="Button" parent="interface/add_open_door/panel/buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Нет"
+
+[node name="text" type="RichTextLabel" parent="interface/add_open_door/panel"]
+layout_mode = 0
+offset_right = 305.0
+offset_bottom = 208.0
+bbcode_enabled = true
+text = "
+
+
+
+[center]Войдя в дом вы [color=red] потратите [/color] 1 ключ [img=32]res://sprites/items/key_atlas.tres[/img]"
+fit_content = true
+autowrap_mode = 1
+
+[node name="interactive_add" type="Control" parent="interface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="text" type="Label" parent="interface/interactive_add"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -40.0
+offset_right = 312.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kdahu")
+text = "Открыть сундук"
+label_settings = SubResource("LabelSettings_8mf88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="get_item" type="Control" parent="interface"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="items" type="VBoxContainer" parent="interface/get_item"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -648.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="inventory" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="back" type="GridContainer" parent="inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+columns = 6
+
+[node name="grid" type="GridContainer" parent="inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+
+[node name="descripton" type="Label" parent="inventory"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = 68.0
+offset_right = 200.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("FontFile_8i4tq")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4p23")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="delete" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 31.0
+offset_right = 314.0
+offset_bottom = 91.0
+text = "Выбросить"
+
+[node name="use" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 95.0
+offset_right = 339.0
+offset_bottom = 155.0
+text = "Использовать"

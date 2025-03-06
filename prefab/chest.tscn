@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5nkdnia0fq7"]
+
+[ext_resource type="Shader" uid="uid://cxb85vd6amgl1" path="res://shaders/outline.gdshader" id="1_xvoll"]
+[ext_resource type="Texture2D" uid="uid://dmnpoyfgpb0qs" path="res://sprites/interactive/chest.png" id="2_vcbn5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnq28"]
+resource_local_to_scene = true
+shader = ExtResource("1_xvoll")
+shader_parameter/width = 0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/flickering_speed = 0.0
+shader_parameter/minimal_flickering_alpha = 0.9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o467i"]
+atlas = ExtResource("2_vcbn5")
+region = Rect2(1, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75gx3"]
+atlas = ExtResource("2_vcbn5")
+region = Rect2(19, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa77u"]
+atlas = ExtResource("2_vcbn5")
+region = Rect2(37, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50h2y"]
+atlas = ExtResource("2_vcbn5")
+region = Rect2(55, 0, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsr1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o467i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75gx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa77u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50h2y")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxbss"]
+size = Vector2(15.7997, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vd5p8"]
+radius = 11.2929
+
+[node name="chest" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_fnq28")
+position = Vector2(0, -8)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_rsr1u")
+animation = &"open"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_qxbss")
+
+[node name="area_interact" type="Area2D" parent="."]
+position = Vector2(0, -9.99999)
+collision_layer = 4
+collision_mask = 0
+
+[node name="collision" type="CollisionShape2D" parent="area_interact"]
+position = Vector2(0, 2.99999)
+shape = SubResource("CircleShape2D_vd5p8")

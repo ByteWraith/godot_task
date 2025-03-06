@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://fg5mo2c42gm1"]
+
+[ext_resource type="Texture2D" uid="uid://dfg7xh78c5j8o" path="res://sprites/builders/ob_house_05.png" id="1_4rts5"]
+[ext_resource type="Script" uid="uid://cp8egpni746rf" path="res://scripts/all_house_scripts.gd" id="1_fv3l5"]
+[ext_resource type="PackedScene" uid="uid://dc3gqcvtncst1" path="res://prefab/items.tscn" id="2_fv3l5"]
+[ext_resource type="PackedScene" uid="uid://b5nkdnia0fq7" path="res://prefab/chest.tscn" id="3_uc10r"]
+[ext_resource type="Script" uid="uid://div5jm63fasqp" path="res://scripts/exit_house.gd" id="4_fhfsg"]
+[ext_resource type="Texture2D" uid="uid://cowlxrs31k2oq" path="res://sprites/interface/interface.png" id="6_uc10r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apxn0"]
+atlas = ExtResource("1_4rts5")
+region = Rect2(67, 216, 124, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsyi3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhfsg"]
+atlas = ExtResource("6_uc10r")
+region = Rect2(2, 19, 11, 9)
+
+[node name="house_1" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fv3l5")
+
+[node name="sprite_wall" type="Sprite2D" parent="."]
+position = Vector2(64, -12)
+scale = Vector2(1.03226, 1)
+texture = SubResource("AtlasTexture_apxn0")
+
+[node name="spawn_player" type="Marker2D" parent="."]
+position = Vector2(64, 83)
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(0, 24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(0, -160)
+polygon = PackedVector2Array(0, 224, 0, 248, 128, 248, 128, 224)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(0, -272)
+polygon = PackedVector2Array(0, 224, 0, 248, 128, 248, 128, 224)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(224, -24)
+rotation = 1.5708
+polygon = PackedVector2Array(0, 224, 0, 248, 88.0009, 248, 88.0008, 224)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(376, -24)
+rotation = 1.5708
+polygon = PackedVector2Array(0, 224, 0, 248, 88.0009, 248, 88.0008, 224)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 128.0
+offset_bottom = 88.0
+color = Color(0.314652, 0.073864, 0, 1)
+
+[node name="items" parent="." instance=ExtResource("2_fv3l5")]
+position = Vector2(16, 16)
+
+[node name="items2" parent="." instance=ExtResource("2_fv3l5")]
+position = Vector2(104, 16)
+
+[node name="items3" parent="." instance=ExtResource("2_fv3l5")]
+position = Vector2(64, 16)
+
+[node name="chest" parent="." instance=ExtResource("3_uc10r")]
+position = Vector2(8, 80)
+
+[node name="chest2" parent="." instance=ExtResource("3_uc10r")]
+position = Vector2(112, 80)
+
+[node name="exit_house" type="Area2D" parent="."]
+position = Vector2(64, 88)
+script = ExtResource("4_fhfsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_house"]
+shape = SubResource("RectangleShape2D_qsyi3")
+debug_color = Color(0, 0.6, 0, 0)
+
+[node name="arrow_sprite" type="Sprite2D" parent="exit_house"]
+position = Vector2(0, -4)
+rotation = -3.14159
+scale = Vector2(0.727273, 0.833333)
+texture = SubResource("AtlasTexture_fhfsg")

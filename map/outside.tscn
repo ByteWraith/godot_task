@@ -1,0 +1,229 @@
+[gd_scene load_steps=22 format=3 uid="uid://brsxx4fqexmua"]
+
+[ext_resource type="Texture2D" uid="uid://dfg7xh78c5j8o" path="res://sprites/builders/ob_house_05.png" id="1_4o5sh"]
+[ext_resource type="Script" uid="uid://blyboh26hjmfr" path="res://scripts/outside.gd" id="1_j8bgr"]
+[ext_resource type="Texture2D" uid="uid://ws62qxrku5kx" path="res://sprites/builders/spr_structures_exterior.png" id="2_j8bgr"]
+[ext_resource type="Texture2D" uid="uid://cowlxrs31k2oq" path="res://sprites/interface/interface.png" id="3_tlt28"]
+[ext_resource type="Script" uid="uid://div5jm63fasqp" path="res://scripts/exit_house.gd" id="4_j8bgr"]
+[ext_resource type="Texture2D" uid="uid://hchhw12vschp" path="res://sprites/builders/ob_house_07.png" id="4_t1ex4"]
+[ext_resource type="Texture2D" uid="uid://bufcpv1jhgkfo" path="res://sprites/builders/ob_house_04.png" id="5_rbhhx"]
+[ext_resource type="PackedScene" uid="uid://b5nkdnia0fq7" path="res://prefab/chest.tscn" id="7_eca6c"]
+[ext_resource type="PackedScene" uid="uid://dc3gqcvtncst1" path="res://prefab/items.tscn" id="8_saiis"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdp0l"]
+atlas = ExtResource("1_4o5sh")
+region = Rect2(65, 75, 128, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd5p8"]
+size = Vector2(126, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8bgr"]
+resource_local_to_scene = true
+atlas = ExtResource("2_j8bgr")
+region = Rect2(16, 80, 16, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlt28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln38p"]
+atlas = ExtResource("3_tlt28")
+region = Rect2(2, 19, 11, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5sxj"]
+atlas = ExtResource("4_t1ex4")
+region = Rect2(22, 26, 90, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlt28"]
+resource_local_to_scene = true
+atlas = ExtResource("2_j8bgr")
+region = Rect2(16, 80, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnq28"]
+atlas = ExtResource("5_rbhhx")
+region = Rect2(69, 36, 120, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3y2c"]
+size = Vector2(116, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1ex4"]
+resource_local_to_scene = true
+atlas = ExtResource("2_j8bgr")
+region = Rect2(16, 80, 16, 17)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vd5p8"]
+load_path = "res://.godot/imported/spr_structures_exterior.png-1f4155bfa63dd0574592a0af05b6c26e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a88m0"]
+atlas = SubResource("CompressedTexture2D_vd5p8")
+region = Rect2(304, 80, 16, 16)
+
+[node name="outside" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_j8bgr")
+
+[node name="scenes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="house_1" type="StaticBody2D" parent="scenes"]
+position = Vector2(144, 103)
+
+[node name="sprite" type="Sprite2D" parent="scenes/house_1"]
+position = Vector2(0, -59)
+texture = SubResource("AtlasTexture_bdp0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenes/house_1"]
+position = Vector2(0, -43)
+shape = SubResource("RectangleShape2D_vd5p8")
+
+[node name="exit" type="Marker2D" parent="scenes/house_1"]
+position = Vector2(-32, 14)
+
+[node name="door" type="Sprite2D" parent="scenes/house_1"]
+position = Vector2(-32, -11)
+texture = SubResource("AtlasTexture_j8bgr")
+
+[node name="enter_house" type="Area2D" parent="scenes/house_1"]
+position = Vector2(-32, -1)
+script = ExtResource("4_j8bgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenes/house_1/enter_house"]
+shape = SubResource("RectangleShape2D_tlt28")
+debug_color = Color(0, 0.6, 0, 0)
+
+[node name="arrow_sprite" type="Sprite2D" parent="scenes/house_1/enter_house"]
+scale = Vector2(0.727273, 0.833333)
+texture = SubResource("AtlasTexture_ln38p")
+
+[node name="house_2" type="StaticBody2D" parent="scenes"]
+position = Vector2(280, 103)
+
+[node name="sprite" type="Sprite2D" parent="scenes/house_2"]
+position = Vector2(0, -39.5)
+texture = SubResource("AtlasTexture_r5sxj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="scenes/house_2"]
+position = Vector2(0, -31.5)
+polygon = PackedVector2Array(-44, 31, 18, 31, 43, 30.5, 43, -20, -44, -20)
+
+[node name="exit" type="Marker2D" parent="scenes/house_2"]
+position = Vector2(2, 14)
+
+[node name="door" type="Sprite2D" parent="scenes/house_2"]
+position = Vector2(2, -8.48524)
+texture = SubResource("AtlasTexture_tlt28")
+
+[node name="enter_house" type="Area2D" parent="scenes/house_2"]
+position = Vector2(2, 3)
+script = ExtResource("4_j8bgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenes/house_2/enter_house"]
+shape = SubResource("RectangleShape2D_tlt28")
+debug_color = Color(0, 0.6, 0, 0)
+
+[node name="arrow_sprite" type="Sprite2D" parent="scenes/house_2/enter_house"]
+scale = Vector2(0.727273, 0.833333)
+texture = SubResource("AtlasTexture_ln38p")
+
+[node name="house_3" type="StaticBody2D" parent="scenes"]
+position = Vector2(408, 104)
+
+[node name="sprite" type="Sprite2D" parent="scenes/house_3"]
+position = Vector2(0, -79)
+texture = SubResource("AtlasTexture_fnq28")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenes/house_3"]
+position = Vector2(0, -43.5)
+shape = SubResource("RectangleShape2D_j3y2c")
+
+[node name="exit" type="Marker2D" parent="scenes/house_3"]
+position = Vector2(-27, 14)
+
+[node name="door" type="Sprite2D" parent="scenes/house_3"]
+position = Vector2(-26.9905, -8.49305)
+texture = SubResource("AtlasTexture_t1ex4")
+
+[node name="enter_house" type="Area2D" parent="scenes/house_3"]
+position = Vector2(-27, 3)
+script = ExtResource("4_j8bgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenes/house_3/enter_house"]
+shape = SubResource("RectangleShape2D_tlt28")
+debug_color = Color(0, 0.6, 0, 0)
+
+[node name="arrow_sprite" type="Sprite2D" parent="scenes/house_3/enter_house"]
+scale = Vector2(0.727273, 0.833333)
+texture = SubResource("AtlasTexture_ln38p")
+
+[node name="back" type="TextureRect" parent="scenes"]
+offset_right = 542.0
+offset_bottom = 224.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_a88m0")
+stretch_mode = 6
+
+[node name="chest" parent="scenes" instance=ExtResource("7_eca6c")]
+position = Vector2(183, 180)
+
+[node name="chest2" parent="scenes" instance=ExtResource("7_eca6c")]
+position = Vector2(307, 143)
+
+[node name="chest3" parent="scenes" instance=ExtResource("7_eca6c")]
+position = Vector2(383, 177)
+
+[node name="chest4" parent="scenes" instance=ExtResource("7_eca6c")]
+position = Vector2(446, 208)
+
+[node name="wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall"]
+polygon = PackedVector2Array(0, 224, 0, 248, 544, 248, 544, 224)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(0, -248)
+polygon = PackedVector2Array(0, 224, 0, 248, 544, 248, 544, 224)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(224, -24)
+rotation = 1.5708
+polygon = PackedVector2Array(0, 224, 0, 248, 272, 248, 272, 224)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="wall"]
+position = Vector2(320, 248)
+rotation = -1.5708
+polygon = PackedVector2Array(0, 224, 0, 248, 272, 248, 272, 224)
+
+[node name="items" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(206.681, 152.162)
+
+[node name="items2" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(237.875, 180.201)
+
+[node name="items3" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(286.244, 185.809)
+
+[node name="items4" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(339.869, 149.708)
+
+[node name="items5" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(24.3195, 145.8)
+
+[node name="items6" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(55.5135, 173.84)
+
+[node name="items7" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(103.882, 179.447)
+
+[node name="items8" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(157.507, 143.347)
+
+[node name="items9" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(376.935, 137.674)
+
+[node name="items10" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(408.129, 165.714)
+
+[node name="items11" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(456.498, 171.322)
+
+[node name="items12" parent="." instance=ExtResource("8_saiis")]
+position = Vector2(510.123, 135.221)
