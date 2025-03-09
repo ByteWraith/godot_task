@@ -62,3 +62,27 @@ func systems_(variant: String):
 					pool_object._ready()
 					Memory.pool_items.pop_front()
 #endregion
+
+func change_scenes_(map_name: StringName):
+#region Смена сцены
+	# Сохраняем игрока в пул
+	Memory.pool_player = get_tree().get_first_node_in_group("player").duplicate()
+
+	# Очищаем список объектов текущей локации
+	Memory.memory_items_and_doors[get_tree().current_scene.name].object.clear()
+
+	# Сохраняем объекты текущей локации в память
+	for item in get_tree().current_scene.get_children():
+		if item is StaticBody2D:
+			if item.get_script():
+				var dic_item = {
+					"position" : item.global_position,
+					"type" : item.variant_item
+				}
+
+				Memory.memory_items_and_doors[get_tree().current_scene.name].object.append(dic_item)
+				Memory.pool_items.append(item.duplicate())
+
+	# Меняем сцену
+	get_tree().change_scene_to_file("res://map/" + map_name + ".tscn")
+#endregion
