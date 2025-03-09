@@ -29,6 +29,12 @@ var last_item : Node
 ## Кнопка использования предмета из инвентаря
 @onready var use: Button = $inventory/use
 
+func _ready() -> void:
+#region Системные настройки
+	# Подключить кнопки входа в дверь
+	call_deferred("update_inventory_","buttons_door")
+#endregion
+
 func _input(event: InputEvent) -> void:
 #region Управление
 	# Если игрок нажал открыть инвентарь
@@ -47,10 +53,7 @@ func open_close_inventory_(variant:bool):
 	Memory.stats_player.stop = variant
 	# Обновить инвентарь
 	call_deferred("update_inventory_","update")
-	# Подключить кнопки инвентаря
-	call_deferred("update_inventory_","buttons")
-	# Подключить кнопки входа в дверь
-	call_deferred("update_inventory_","buttons_door")
+
 	# Если инвентарь закрыли
 	if not variant:
 		# Очистить последний выбранный предмет
@@ -127,7 +130,6 @@ func update_inventory_(variant:String):
 			for butt in $interface/add_open_door/panel/buttons.get_children():
 				if not butt.pressed.is_connected(button_open_close_door_.bind(butt.name)):
 					butt.pressed.connect(button_open_close_door_.bind(butt.name))
-
 #endregion
 
 func input_items_inv_(event:InputEvent,enter_exit_mouse,body:Node):
@@ -208,9 +210,11 @@ func button_open_close_door_(name_button: String):
 				call_deferred("update_interface_")
 				Memory.memory_items_and_doors[Memory.stats_player.next_location].door = "open"
 				get_tree().current_scene.call_deferred("systems_","texture_door")
+				get_tree().current_scene.call_deferred("change_scenes_",Memory.stats_player.next_location)
+				# Отключаем видимость интерфейса о входе в дом
 				visible_enter_close_door_interface_(false)
 		"cancel":
-			# Закрываем интерфейс двери
+			# Отключаем видимость интерфейса о входе в дом
 			visible_enter_close_door_interface_(false)
 #endregion
 
